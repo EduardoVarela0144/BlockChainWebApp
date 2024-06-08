@@ -1,8 +1,9 @@
 import api from "@services/api";
+import { axiosElasticInstance } from "@services/api";
 
 class UsersRepository {
   async getUsers(params) {
-    const response = await api.get(`/users`, { params });
+    const response = await axiosElasticInstance.get(`/users/_search`);
     return response.data;
   }
 
