@@ -19,7 +19,7 @@ export default function Register() {
       <div className="absolute top-4 left-6 z-[100]flex-row space-x-4 hidden md:flex">
         <Button
           type="primary"
-          className="bg-KarimNot "
+          className="bg-BC "
           shape="circle"
           icon={<ArrowLeftOutlined />}
           onClick={() => navigate("/")}

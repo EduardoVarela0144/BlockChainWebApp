@@ -17,12 +17,9 @@ function useLogin() {
 
       axiosInstance.defaults.headers.common["Authorization"] = "Bearer " + response.token;
 
+      navigate("/Dashboard");
 
-      if (response?.user?.roleId == 1) {
-        navigate("/Dashboard");
-      } else {
-        navigate("/Welcome");
-      }
+      
 
       notification.success({
         message: "Inicio de sesión exitoso.",

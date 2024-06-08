@@ -17,7 +17,7 @@ export default function CustomCarousel() {
               <span className="opacity-100 text-center text-6xl">
                 {image?.area}
               </span>
-              <span className="opacity-100 text-center text-xl text-KarimNot">
+              <span className="opacity-100 text-center text-xl text-BC">
                 {image?.text}
               </span>
             </div>

@@ -39,7 +39,7 @@ export default function Login() {
               initialValues={{ remember: true }}
               style={{ width: "100%", margin: "0 auto" }}
             >
-              <img src={Logo} className="h-24 w-auto" />
+              <img src={Logo} className="h-24 w-auto mb-4" />
               <Form.Item
                 label="Correo electrónico"
                 name="email"

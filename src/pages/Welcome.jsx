@@ -21,7 +21,7 @@ export default function Welcome() {
         <div className="logo" />
         <Menu theme="dark" mode="horizontal">
           <Menu.Item key="2">
-            <span className="text-left text-KarimNot text-xs md:text-xl font-bold">
+            <span className="text-left text-BC text-xs md:text-xl font-bold">
               Bienvenido, {Auth?.user?.firstName} {Auth?.user?.lastName}{" "}
               {Auth?.user?.middleName}
             </span>

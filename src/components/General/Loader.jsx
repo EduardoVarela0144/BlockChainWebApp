@@ -12,7 +12,7 @@ export default function Loader() {
         </div>
         <img
           src={Logo}
-          style={{ width: 120, height: 100, marginLeft: 32 }}
+          style={{ width: 76, height: 60 }}
           alt="Logo"
         />
       </div>

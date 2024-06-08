@@ -36,12 +36,12 @@ class UsersRepository {
   }
 
   async login(user) {
-    const response = await api.post(`/users/login`, user);
+    const response = await api.post(`/user/login`, user);
     return response.data;
   }
 
   async register(user) {
-    const response = await api.post(`/users/register`, user);
+    const response = await api.post(`/user/signup`, user);
     return response.data;
   }
 

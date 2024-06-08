@@ -36,20 +36,20 @@ export default function Template({ title, lottie, message }) {
       <div className="absolute top-4 left-6 z-[100] flex flex-row space-x-4 items-center justify-center">
         <Button
           type="primary"
-          className="bg-KarimNot"
+          className="bg-BC"
           shape="circle"
           icon={<ArrowLeftOutlined />}
           onClick={() => back()}
         />
-        <span className="text-KarimNot font-bold">Regresar al inicio</span>
+        <span className="text-BC font-bold">Regresar al inicio</span>
       </div>
       <div className="w-auto h-36">
         <Lottie options={defaultOptions} isClickToPauseDisabled={true} />
       </div>
       <div className="w-full flex flex-row items-center justify-center ">
         <img src={Logo} className="h-8 w-auto" />
-        <div className="w-0.5 h-full bg-KarimNot mr-4" />
-        <span className="text-KarimNot font-bold text-xl text-center">
+        <div className="w-0.5 h-full bg-BC mr-4" />
+        <span className="text-BC font-bold text-xl text-center">
           {message}
         </span>
       </div>

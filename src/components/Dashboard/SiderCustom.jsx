@@ -23,11 +23,11 @@ export default function SiderCustom({
     >
       <div
         className={`flex flex-row ${
-          collapsed ? "hidden" : "flex"
+          collapsed ? "hidden" : "flex flex-col"
         } items-center px-2 py-1`}
       >
         <img src={Logo} className="h-8 w-auto" />
-        <span className="font-bold text-white">Karimnot Inc</span>
+        <span className="font-bold text-white">BlockChain App</span>
       </div>
 
       <div

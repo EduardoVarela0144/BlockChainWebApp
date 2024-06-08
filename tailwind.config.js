@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        KarimNot: "#008FD1",
+        BC: "#008FD1",
       },
     },
   },

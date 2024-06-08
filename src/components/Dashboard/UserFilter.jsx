@@ -19,7 +19,7 @@ export default function UserFilter({handleSearchChange, handleCleanSearch}) {
  
   return (
     <div className="w-full space-y-8">
-      <span className="text-left text-KarimNot text-4xl font-bold">
+      <span className="text-left text-BC text-4xl font-bold">
         Usuarios
       </span>
       <div className="w-full flex flex-row space-x-4">
@@ -45,7 +45,7 @@ export default function UserFilter({handleSearchChange, handleCleanSearch}) {
           </div>
 
           <Form.Item className="w-[95%] lg:w-[10%] my-4 lg:my-0">
-            <Button onClick={() => handleClean()} className="bg-KarimNot w-full" type="primary">
+            <Button onClick={() => handleClean()} className="bg-BC w-full" type="primary">
               Limpiar
             </Button>
           </Form.Item>
@@ -66,7 +66,7 @@ export default function UserFilter({handleSearchChange, handleCleanSearch}) {
       <div>
         <Button
           onClick={() => navigate("/Dashboard/AddUser")}
-          className="bg-KarimNot w-[95%] md:w-auto"
+          className="bg-BC w-[95%] md:w-auto"
           type="primary"
         >
           Agregar un nuevo usuario

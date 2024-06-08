@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, DatePicker, Select } from "antd";
+import { Form, Input, Button, Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { selectFormRolesMockData } from "@mocks/mocksData";
@@ -8,7 +8,6 @@ import { useEditUser } from "@hooks/Users/useEditUser";
 import { useParams } from "react-router-dom";
 import { useGetUserById } from "@hooks/Users/useGetUserById";
 import Loader from "@components/General/Loader";
-import moment from "moment";
 import { useRegister } from "@hooks/Users/useRegister";
 
 export default function UserForm({ isAdd, isEdit }) {
@@ -19,7 +18,6 @@ export default function UserForm({ isAdd, isEdit }) {
   const { register } = useRegister();
 
   const onFinish = async (values) => {
-
     if (!isEdit && !isAdd) {
       register(values);
     } else if (isEdit) {
@@ -29,7 +27,7 @@ export default function UserForm({ isAdd, isEdit }) {
     }
 
     if (!isEdit && !isAdd) {
-      navigate("/Pending");
+      navigate("/Dashboard/Users");
     } else {
       navigate("/Dashboard/Users");
     }
@@ -60,13 +58,13 @@ export default function UserForm({ isAdd, isEdit }) {
           <div className="flex flex-row  space-x-2 items-center justify-center">
             <Button
               type="primary"
-              className="bg-KarimNot md:hidden flex"
+              className="bg-BC md:hidden flex"
               shape="circle"
               icon={<ArrowLeftOutlined />}
               onClick={() => navigate("/")}
             />
-            <span className="opacity-100 text-center text-[10px] md:text-lg text-KarimNot font-bold ">
-              Solicita al administrador activar tu cuenta.
+            <span className="opacity-100 text-center text-[10px] md:text-lg text-BC font-bold ">
+              Comienza a usar nuestra aplicación
             </span>
           </div>
         </Form.Item>
@@ -85,8 +83,8 @@ export default function UserForm({ isAdd, isEdit }) {
 
       <Form.Item
         label="Nombre"
-        name="firstName"
-        initialValue={data?.firstName || ""}
+        name="name"
+        initialValue={data?.name || ""}
         rules={[
           {
             required: true,
@@ -98,32 +96,19 @@ export default function UserForm({ isAdd, isEdit }) {
       </Form.Item>
 
       <Form.Item
-        label="Apellido Paterno"
-        name="lastName"
-        initialValue={data?.lastName || ""}
+        label="Apellidos"
+        name="lastname"
+        initialValue={data?.lastname || ""}
         rules={[
           {
             required: true,
-            message: "Por favor ingresa tu apellido paterno.",
+            message: "Por favor ingresa tus apellidos.",
           },
         ]}
       >
         <Input />
       </Form.Item>
 
-      <Form.Item
-        label="Apellido Materno"
-        name="middleName"
-        initialValue={data?.middleName || ""}
-        rules={[
-          {
-            required: true,
-            message: "Por favor ingresa tu apellido materno.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
 
       <Form.Item
         initialValue={data?.email || ""}
@@ -143,41 +128,9 @@ export default function UserForm({ isAdd, isEdit }) {
         <Input />
       </Form.Item>
 
-      <Form.Item
-        label="Número de teléfono"
-        name="phoneNumber"
-        initialValue={data?.phoneNumber || ""}
-        rules={[
-          {
-            required: true,
-            message: "Por favor ingresa tu número de teléfono.",
-          },
-          {
-            pattern: /^[\d+-]+$/,
-            message: "Por favor ingresa solo números, + y -.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+     
 
-      <Form.Item
-        className={`${!isEdit ? "hidden" : "inline-block w-full"}`}
-        label="Estatus"
-        name="status"
-        initialValue={!isEdit && !isAdd ? false : isEdit ? data?.status : true}
-        rules={[
-          {
-            required: true,
-            message: "Por favor selecciona un estatus",
-          },
-        ]}
-      >
-        <Select>
-          <Option value={true}>Activo</Option>
-          <Option value={false}>Inactivo</Option>
-        </Select>
-      </Form.Item>
+     
 
       <Form.Item
         label="Contraseña"
@@ -203,21 +156,7 @@ export default function UserForm({ isAdd, isEdit }) {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item
-        name="birthDate"
-        initialValue={
-          data?.birthDate ? moment(data.birthDate, "YYYY-MM-DD") : null
-        }
-        label="Selecciona tu fecha de nacimiento"
-        rules={[
-          {
-            required: true,
-            message: "Por favor selecciona tu fecha de nacimiento.",
-          },
-        ]}
-      >
-        <DatePicker style={{ width: "100%" }} />
-      </Form.Item>
+     
 
       {(isEdit || isAdd) && (
         <Form.Item

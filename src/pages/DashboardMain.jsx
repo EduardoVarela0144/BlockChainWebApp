@@ -16,7 +16,7 @@ export default function DashboardMain() {
   return (
     <Layout className="flex-1 flex h-full">
       <Content className="bg-slate-200 h-full flex flex-col items-start justify-center px-8 py-4 space-y-8">
-        <span className="text-left text-KarimNot text-4xl font-bold">
+        <span className="text-left text-BC text-4xl font-bold">
           Estadísticas
         </span>
         <div className="flex flex-col md:flex-row w-full space-y-2 md:space-y-0 md:space-x-4">
