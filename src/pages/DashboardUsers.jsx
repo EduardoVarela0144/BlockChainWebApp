@@ -53,7 +53,7 @@ export default function DashboardUsers() {
               dataSource={data?.users}
               rowKey={(record) => record?.id}
             />
-            <MobileViewUsers data={data?.users} isFetching={isFetching} refetch={refetch} />
+            {/* <MobileViewUsers data={data?.users} isFetching={isFetching} refetch={refetch} /> */}
             <div className="flex  w-full justify-center items-center">
               <Pagination
                 pageSize={10}

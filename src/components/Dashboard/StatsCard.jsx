@@ -1,23 +1,13 @@
 import React from "react";
-import { Progress, Card } from "antd";
+import { Progress, Card, Statistic } from "antd";
+import CountUp from "react-countup";
 
 export default function StatsCard({ title, data }) {
+  const formatter = (value) => <CountUp end={value} separator="," />;
+
   return (
     <Card title={title} className="md:w-[300] w-full">
-      {data.map((item, index) => (
-        <div key={index}>
-          {item.status && (
-            <div>
-              {item.status}: <Progress percent={item.percentage} />
-            </div>
-          )}
-          {item.role && (
-            <div>
-              {item.role}: <Progress percent={item.percentage} />
-            </div>
-          )}
-        </div>
-      ))}
+      <Statistic title={title} value={data} formatter={formatter} />
     </Card>
   );
 }

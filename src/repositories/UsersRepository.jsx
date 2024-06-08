@@ -7,7 +7,7 @@ class UsersRepository {
   }
 
   async getStats() {
-    const response = await api.get(`/users/stats`);
+    const response = await api.get(`/statistics`);
     return response.data;
   }
 

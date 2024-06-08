@@ -19,9 +19,9 @@ export default function PrivateRouter({ Component }) {
     if (Auth !== null && Auth !== undefined) {
       if (allowedRoutes.includes(currentURL)) {
         if (Auth?.user?.roleId != 1) {
-          return <Navigate to="/Dashboard/users" />;
+          return <Navigate to="/Dashboard" />;
         } else {
-          return <Navigate to="/Dashboard/users" />;
+          return <Navigate to="/Dashboard" />;
         }
       } 
       return <Component />;

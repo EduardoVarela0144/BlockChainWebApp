@@ -24,7 +24,7 @@ export default function SiderCustom({
       <div
         className={`flex flex-row ${
           collapsed ? "hidden" : "flex flex-col"
-        } items-center px-2 py-1`}
+        } items-center px-2 py-1 my-8`}
       >
         <img src={Logo} className="h-8 w-auto" />
         <span className="font-bold text-white">BlockChain App</span>
@@ -43,10 +43,10 @@ export default function SiderCustom({
           size={collapsed ? 30 : 60}
           text="true"
         >
-          {Auth?.user?.firstName[0].toUpperCase()}
+          {Auth?.user?.name[0].toUpperCase()}
         </Avatar>
         <span className={`text-white ${collapsed ? "hidden" : "flex"}`}>
-          {Auth?.user?.firstName}
+          {Auth?.user?.name}
         </span>
       </div>
 

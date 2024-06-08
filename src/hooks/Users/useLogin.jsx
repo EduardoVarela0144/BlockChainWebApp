@@ -13,13 +13,19 @@ function useLogin() {
   const login = async (data) => {
     try {
       const response = await mutation.mutateAsync(data);
-      setAuth(response);
+      setAuth({
+        user: {
+          user_id: response.user_id,
+          name: response.name,
+          email: response.email,
+          lastname: response.lastname,
+          token : response.access_token
+        }
+      });
 
-      axiosInstance.defaults.headers.common["Authorization"] = "Bearer " + response.token;
+      axiosInstance.defaults.headers.common["Authorization"] = "Bearer " + response.access_token;
 
       navigate("/Dashboard");
-
-      
 
       notification.success({
         message: "Inicio de sesión exitoso.",
@@ -27,7 +33,6 @@ function useLogin() {
         placement: "topRight",
       });
 
-      console.log(response);
 
       return response;
     } catch (error) {
