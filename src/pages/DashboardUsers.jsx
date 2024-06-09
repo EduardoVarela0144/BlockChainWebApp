@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Table, Button } from "antd";
 import { ColumnsTableUsers } from "@constants/ColumnsTableUsers";
 import Loader from "@components/General/Loader";
@@ -9,13 +9,21 @@ export default function DashboardUsers() {
   const { Content } = Layout;
   const navigate = useNavigate();
 
-  const { data, isFetching, refetch } = useGetUsers();
+  const { data, isLoading, refetch } = useGetUsers();
+
+  const [loading, setLoading] = useState(false);
 
   const handleRefetch = () => {
-    refetch();
+    setLoading(true);
+
+    setTimeout(() => {
+      refetch();
+
+      setLoading(false);
+    }, 1000);
   };
 
-  if (isFetching) {
+  if (isLoading || loading) {
     return <Loader />;
   }
 
@@ -32,7 +40,7 @@ export default function DashboardUsers() {
             Agregar un nuevo usuario
           </Button>
         </div>
-        {!isFetching && (
+        {!isLoading && (
           <>
             <Table
               pagination={false}
@@ -44,7 +52,7 @@ export default function DashboardUsers() {
             />
             <MobileViewUsers
               data={data?.hits.hits}
-              isFetching={isFetching}
+              isFetching={isLoading}
               refetch={refetch}
             />
           </>

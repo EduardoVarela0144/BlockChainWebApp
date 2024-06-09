@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { Form, Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
@@ -15,6 +15,7 @@ export default function UserForm({ isAdd, isEdit }) {
   const { addUser } = useAddUser();
   const { editUser } = useEditUser();
   const { register } = useRegister();
+  const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
     if (!isEdit && !isAdd) {
@@ -25,21 +26,23 @@ export default function UserForm({ isAdd, isEdit }) {
       await addUser(values);
     }
 
-    if (!isEdit && !isAdd) {
-      navigate("/Dashboard/Users");
-    } else {
-      navigate("/Dashboard/Users");
-    }
-  };
 
+    setLoading(true);
+
+    setTimeout(() => {
+      if (!isEdit && !isAdd) {
+        navigate("/Dashboard/Users");
+      } else {
+        navigate("/Dashboard/Users");
+      }
+    }, 1000);
+  };
 
   const { id } = useParams();
 
   const { data, isFetching } = useGetUserById(id);
 
-  console.log(data);
-
-  if (isFetching) {
+  if (isFetching || loading) {
     return <Loader />;
   }
 
@@ -146,7 +149,7 @@ export default function UserForm({ isAdd, isEdit }) {
           },
         ]}
       >
-        <Input.Password disabled={isEdit ? true : false}/>
+        <Input.Password disabled={isEdit ? true : false} />
       </Form.Item>
 
       <Form.Item>

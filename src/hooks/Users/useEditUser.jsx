@@ -1,11 +1,9 @@
 import { useMutation } from "react-query";
 import UsersRepository from "@repositories/UsersRepository";
 import { notification } from "antd";
-import { useNavigate } from "react-router-dom";
 
 function useEditUser() {
   const mutation = useMutation(UsersRepository.updateUser);
-  const navigate = useNavigate();
 
   const editUser = async (data) => {
     try {
@@ -17,7 +15,6 @@ function useEditUser() {
         placement: "topRight",
       });
 
-      navigate("/Dashboard/Users")
 
 
       return response;
