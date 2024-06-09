@@ -37,6 +37,8 @@ export default function DashboardUsers() {
     setFilter({ search: "", page: 1, roleId: "" });
   }
 
+  console.log(data)
+
   return (
     <Layout className="flex-1 flex h-full">
       <Content className="bg-slate-200 h-full flex flex-col items-start justify-center px-8 py-4 space-y-8 overflow-auto">
@@ -50,7 +52,7 @@ export default function DashboardUsers() {
               pagination={false}
               className="w-100 hidden lg:flex"
               columns={ColumnsTableUsers(handleRefetch)}
-              dataSource={data?.users}
+              dataSource={data?.hits.hits}
               rowKey={(record) => record?.id}
             />
             {/* <MobileViewUsers data={data?.users} isFetching={isFetching} refetch={refetch} /> */}
