@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Progress } from "antd";
+import { Card, Progress } from "antd";
 
 export default function CardsStats({ title, percent, color }) {
   return (

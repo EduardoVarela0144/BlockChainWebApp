@@ -1,9 +1,8 @@
 import React from "react";
-import { selectRolesMockData } from "@mocks/mocksData";
-import { Button, Form, Select, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 
-export default function UserFilter({ handleSearchChange, handleCleanSearch }) {
+export default function ArticleFilter({ handleSearchChange, handleCleanSearch }) {
   const navigate = useNavigate();
 
   const [form] = Form.useForm();

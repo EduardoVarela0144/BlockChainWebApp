@@ -24,7 +24,7 @@ const DashboardLayout = () => {
       path === "/dashboard/Users"
     )
       return "2";
-    if (path === "/Dashboard/Roles") return "3";
+    if (path === "/Dashboard/Search") return "3";
     return "1";
   };
 

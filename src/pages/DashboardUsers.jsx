@@ -1,48 +1,35 @@
-import React, { useState } from "react";
-import { Layout, Table, Pagination } from "antd";
+import React  from "react";
+import { Layout, Table, Button } from "antd";
 import { ColumnsTableUsers } from "@constants/ColumnsTableUsers";
 import Loader from "@components/General/Loader";
-import UserFilter from "@components/Dashboard/UserFilter";
 import MobileViewUsers from "@components/Dashboard/MobileViewUsers";
 import { useGetUsers } from "@hooks/Users/useGetUsers";
+import { useNavigate
 
+ } from "react-router-dom";
 export default function DashboardUsers() {
   const { Content } = Layout;
+  const navigate = useNavigate();
 
-  const [filter, setFilter] = useState({ search: "", page: 1, roleId: "" });
-
-  const { data, isFetching, refetch} = useGetUsers(filter);
-
-  const handlePageChange = (newPage) => {
-    if (newPage != filter.page) {
-      setFilter({ ...filter, page: newPage });
-    }
-  };
+  const { data, isFetching, refetch } = useGetUsers();
 
   const handleRefetch = () => {
-    refetch()
-  }
-
-  const handleSearchChange = (data) => {
-    const updatedFilter = { ...filter };
-
-    updatedFilter.roleId = data.rol || "";
-    updatedFilter.search = data.user || "";
-    updatedFilter.page = 1;
-
-    setFilter(updatedFilter);
+    refetch();
   };
-
-  const handleCleanSearch = () => {
-    setFilter({ search: "", page: 1, roleId: "" });
-  }
-
 
   return (
     <Layout className="flex-1 flex h-full">
-      <Content className="bg-slate-200 h-full flex flex-col items-start justify-center px-8 py-4 space-y-8 overflow-auto">
-        <UserFilter handleSearchChange={handleSearchChange} handleCleanSearch={handleCleanSearch} />
-
+      <Content className="bg-slate-200 h-full flex flex-col items-start justify-start px-8 py-4 space-y-8 overflow-auto">
+        <span className="text-left text-BC text-4xl font-bold">Usuarios</span>
+        <div>
+          <Button
+            onClick={() => navigate("/Dashboard/AddUser")}
+            className="bg-BC w-[100%] md:w-auto"
+            type="primary"
+          >
+            Agregar un nuevo usuario
+          </Button>
+        </div>
         {isFetching ? (
           <Loader />
         ) : (
@@ -53,20 +40,13 @@ export default function DashboardUsers() {
               columns={ColumnsTableUsers(handleRefetch)}
               dataSource={data?.hits.hits}
               rowKey={(record) => record?._id}
-              style= {{minWidth: '100%', width: '100%'}}
+              style={{ minWidth: "100%", width: "100%" }}
             />
-            <MobileViewUsers data={data?.hits.hits} isFetching={isFetching} refetch={refetch} />
-            <div className="flex  w-full justify-center items-center">
-              <Pagination
-                pageSize={10}
-                total={data?.totalUsers}
-                defaultCurrent={filter.page}
-                onChange={(page) => {
-                  handlePageChange(page);
-                }}
-                showSizeChanger={false}
-              />
-            </div>
+            <MobileViewUsers
+              data={data?.hits.hits}
+              isFetching={isFetching}
+              refetch={refetch}
+            />
           </>
         )}
       </Content>

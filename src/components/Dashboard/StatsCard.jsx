@@ -1,5 +1,5 @@
 import React from "react";
-import { Progress, Card, Statistic } from "antd";
+import { Card, Statistic } from "antd";
 import CountUp from "react-countup";
 
 export default function StatsCard({ title, data }) {

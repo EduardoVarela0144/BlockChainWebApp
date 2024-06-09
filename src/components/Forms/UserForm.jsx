@@ -1,8 +1,7 @@
 import React from "react";
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { selectFormRolesMockData } from "@mocks/mocksData";
 import { useAddUser } from "@hooks/Users/useAddUser";
 import { useEditUser } from "@hooks/Users/useEditUser";
 import { useParams } from "react-router-dom";
@@ -33,9 +32,6 @@ export default function UserForm({ isAdd, isEdit }) {
     }
   };
 
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
 
   const { id } = useParams();
 

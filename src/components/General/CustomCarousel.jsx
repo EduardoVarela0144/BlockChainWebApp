@@ -1,5 +1,5 @@
 import React from "react";
-import { CarouselImages } from "../../constants/Carouselmages";
+import { CarouselImages } from "@constants/Carouselmages";
 import { Carousel } from "antd";
 
 export default function CustomCarousel() {
