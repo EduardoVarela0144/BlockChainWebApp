@@ -20,7 +20,6 @@ function App() {
     if (storedAuth) {
       const authJSON = JSON.parse(storedAuth);
       setAuth(authJSON);
-      console.log(authJSON.user.token)
       axiosInstance.defaults.headers.common["Authorization"] = "Bearer " + authJSON.user.token;
 
     }

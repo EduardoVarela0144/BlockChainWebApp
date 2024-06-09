@@ -16,13 +16,17 @@ const DashboardLayout = () => {
 
   const getSelectedKey = () => {
     const path = location.pathname;
+    console.log(path)
     if (path === "/Dashboard") return "1";
-    if (path === "/Dashboard/Users" || path === "/Dashboard/AddUser") return "2";
+    if (
+      path === "/Dashboard/Users" ||
+      path === "/Dashboard/AddUser" ||
+      path === "/dashboard/Users"
+    )
+      return "2";
     if (path === "/Dashboard/Roles") return "3";
     return "1";
   };
-
- 
 
   useEffect(() => {
     document.title = "Dashboard";
@@ -42,7 +46,7 @@ const DashboardLayout = () => {
             items={ItemsMenuDashboard}
             getSelectedKey={getSelectedKey}
           />
-         <DashboardRouter/>
+          <DashboardRouter />
         </Content>
       </Layout>
     </Layout>
