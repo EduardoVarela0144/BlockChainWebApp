@@ -13,21 +13,21 @@ class UsersRepository {
   }
 
   async postUser(user) {
-    const response = await api.post(`/users`, user);
+    const response = await api.post(`/user/signup`, user);
     return response.data;
   }
 
   async deleteUser(id) {
-    const response = await api.delete(`/users/${id}`, id);
+    const response = await axiosElasticInstance.delete(`/users/_doc/${id}`, id);
     return response.data;
   }
   async getUserById(id) {
-    const response = await api.get(`/users/${id}`, id);
+    const response = await axiosElasticInstance.get(`/users/_doc/${id}`, id);
     return response.data;
   }
 
   async updateUser(user) {
-    const response = await api.put(`/users/${user.id}`, user);
+    const response = await axiosElasticInstance.put(`/users/_doc/${user.id}`, user);
     return response.data;
   }
 

@@ -23,20 +23,20 @@ export default function UserFilter({ handleSearchChange, handleCleanSearch }) {
         <Form
           form={form}
           layout="inline"
-          className="w-full items-end space-y-4 lg:space-y-0 lg:space-x-2"
+          className="w-full items-end space-y-4  lg:space-y-0 lg:space-x-2 "
           labelAlign="top"
           onFinish={onFinish}
         >
           
 
-          <div className="w-[100%] lg:w-[80%]">
+          <div className="w-[100%]  lg:flex-1">
             <span className="ml-1 font-bold">Buscar usuario</span>
             <Form.Item name="user" className="w-[100%]">
               <Input placeholder="Nombre o correo electrónico" />
             </Form.Item>
           </div>
 
-          <div className="w-[100%] lg:flex-1">
+          <div className="w-[100%] lg:w-[10%]">
             <Form.Item className="w-[100%] lg:my-0">
               <Button
                 onClick={() => handleClean()}
@@ -48,7 +48,7 @@ export default function UserFilter({ handleSearchChange, handleCleanSearch }) {
             </Form.Item>
           </div>
 
-          <div className="w-[100%] lg:flex-1">
+          <div className="w-[100%] lg:w-[10%]">
             <Form.Item className="w-[100%]  lg:my-0">
               <Button
                 style={{ borderColor: "#008FD1", color: "#008FD1" }}
@@ -61,12 +61,13 @@ export default function UserFilter({ handleSearchChange, handleCleanSearch }) {
               </Button>
             </Form.Item>
           </div>
+          
         </Form>
       </div>
       <div>
         <Button
           onClick={() => navigate("/Dashboard/AddUser")}
-          className="bg-BC w-[95%] md:w-auto"
+          className="bg-BC w-[100%] md:w-auto"
           type="primary"
         >
           Agregar un nuevo usuario

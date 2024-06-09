@@ -41,6 +41,8 @@ export default function UserForm({ isAdd, isEdit }) {
 
   const { data, isFetching } = useGetUserById(id);
 
+  console.log(data);
+
   if (isFetching) {
     return <Loader />;
   }
@@ -75,7 +77,7 @@ export default function UserForm({ isAdd, isEdit }) {
           hidden={isEdit ? true : false}
           label="Id"
           name="id"
-          initialValue={data?.id || ""}
+          initialValue={data?._id || ""}
         >
           <Input />
         </Form.Item>
@@ -84,7 +86,7 @@ export default function UserForm({ isAdd, isEdit }) {
       <Form.Item
         label="Nombre"
         name="name"
-        initialValue={data?.name || ""}
+        initialValue={data?._source?.name || ""}
         rules={[
           {
             required: true,
@@ -98,7 +100,7 @@ export default function UserForm({ isAdd, isEdit }) {
       <Form.Item
         label="Apellidos"
         name="lastname"
-        initialValue={data?.lastname || ""}
+        initialValue={data?._source?.lastname || ""}
         rules={[
           {
             required: true,
@@ -109,9 +111,8 @@ export default function UserForm({ isAdd, isEdit }) {
         <Input />
       </Form.Item>
 
-
       <Form.Item
-        initialValue={data?.email || ""}
+        initialValue={data?._source?.email || ""}
         label="Correo electrónico"
         name="email"
         rules={[
@@ -128,13 +129,9 @@ export default function UserForm({ isAdd, isEdit }) {
         <Input />
       </Form.Item>
 
-     
-
-     
-
       <Form.Item
         label="Contraseña"
-        initialValue={data?.password || ""}
+        initialValue={data?._source?.password || ""}
         name="password"
         rules={[
           {
@@ -153,26 +150,8 @@ export default function UserForm({ isAdd, isEdit }) {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password disabled={isEdit ? true : false}/>
       </Form.Item>
-
-     
-
-      {(isEdit || isAdd) && (
-        <Form.Item
-          name="roleId"
-          label="Selecciona un rol"
-          initialValue={data?.roleId || ""}
-          rules={[
-            {
-              required: true,
-              message: "Por favor selecciona un rol",
-            },
-          ]}
-        >
-          <Select onChange={handleChange} options={selectFormRolesMockData} />
-        </Form.Item>
-      )}
 
       <Form.Item>
         <Button

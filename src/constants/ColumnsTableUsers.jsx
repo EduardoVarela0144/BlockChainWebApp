@@ -25,7 +25,7 @@ export const ColumnsTableUsers = (handleRefetch) => [
     render: (_, record) => (
       <Space size="middle">
         <EditButton id={record?._id} />
-        <DeleteModal name={record?._source?.name} id={record?.id} refetch={handleRefetch} />
+        <DeleteModal name={record?._source?.name} id={record?._id} refetch={handleRefetch} />
       </Space>
     ),
   },
