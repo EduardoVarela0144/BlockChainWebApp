@@ -9,7 +9,7 @@ import ArticleFilter from "@components/Dashboard/ArticleFilter";
 export default function SemanticSearchArticles() {
   const { Content } = Layout;
 
-  const [filter, setFilter] = useState({ query: "Species", page: 1 });
+  const [filter, setFilter] = useState({ query: "", page: 1 });
 
   const { data, isFetching, refetch } = useGetSemanticSearch(filter);
 
@@ -48,25 +48,32 @@ export default function SemanticSearchArticles() {
 
         {!isFetching && (
           <>
-            <div className="flex  w-full">
-              <ArticlesCards
-                data={data?.results}
-                isFetching={isFetching}
-                refetch={refetch}
-              />
-            </div>
-
-            <div className="flex  w-full justify-center items-center">
-              <Pagination
-                pageSize={10}
-                total={data?.totalUsers}
-                defaultCurrent={filter.page}
-                onChange={(page) => {
-                  handlePageChange(page);
-                }}
-                showSizeChanger={false}
-              />
-            </div>
+            {!data ? (
+              <div className="flex justify-center items-center w-full h-full">
+                <h1 className="text-2xl text-slate-500">
+                  No se encontraron resultados
+                </h1>
+              </div>
+            ) : (
+              <div className="flex flex-col  w-full space-y-4">
+                <ArticlesCards
+                  data={data?.results}
+                  isFetching={isFetching}
+                  refetch={refetch}
+                />
+                <div className="w-full flex  justify-center items-center">
+                  <Pagination
+                    pageSize={10}
+                    total={data?.results.length}
+                    defaultCurrent={filter.page}
+                    onChange={(page) => {
+                      handlePageChange(page);
+                    }}
+                    showSizeChanger={false}
+                  />
+                </div>
+              </div>
+            )}
           </>
         )}
       </Content>

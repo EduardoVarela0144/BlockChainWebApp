@@ -28,7 +28,7 @@ export default function ArticleFilter({ handleSearchChange, handleCleanSearch })
 
           <div className="w-[100%]  lg:flex-1">
             <span className="ml-1 font-bold">Buscar un artículo</span>
-            <Form.Item name="user" className="w-[100%]">
+            <Form.Item name="query" className="w-[100%]">
               <Input placeholder="Necesito información de ..." />
             </Form.Item>
           </div>
