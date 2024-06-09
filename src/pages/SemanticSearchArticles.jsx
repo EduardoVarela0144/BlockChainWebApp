@@ -45,6 +45,11 @@ export default function SemanticSearchArticles() {
           handleSearchChange={handleSearchChange}
           handleCleanSearch={handleCleanSearch}
         />
+        <p>
+          {filter.query &&
+            `Resultados de la búsqueda: "${filter.query}" - Página ${filter.page}`
+          }
+        </p>
 
         {!isFetching && (
           <>
