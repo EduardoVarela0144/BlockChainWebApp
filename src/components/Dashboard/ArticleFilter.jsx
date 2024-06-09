@@ -1,9 +1,7 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import { useNavigate } from "react-router-dom";
 
 export default function ArticleFilter({ handleSearchChange, handleCleanSearch }) {
-  const navigate = useNavigate();
 
   const [form] = Form.useForm();
   const onFinish = (values) => {
@@ -17,7 +15,7 @@ export default function ArticleFilter({ handleSearchChange, handleCleanSearch })
 
   return (
     <div className="w-full space-y-8">
-      <span className="text-left text-BC text-4xl font-bold">Usuarios</span>
+      <span className="text-left text-BC text-4xl font-bold">Búsqueda semántica</span>
       <div className="w-full flex flex-row ">
         <Form
           form={form}
@@ -29,9 +27,9 @@ export default function ArticleFilter({ handleSearchChange, handleCleanSearch })
           
 
           <div className="w-[100%]  lg:flex-1">
-            <span className="ml-1 font-bold">Buscar usuario</span>
+            <span className="ml-1 font-bold">Buscar un artículo</span>
             <Form.Item name="user" className="w-[100%]">
-              <Input placeholder="Nombre o correo electrónico" />
+              <Input placeholder="Necesito información de ..." />
             </Form.Item>
           </div>
 
@@ -63,15 +61,7 @@ export default function ArticleFilter({ handleSearchChange, handleCleanSearch })
           
         </Form>
       </div>
-      <div>
-        <Button
-          onClick={() => navigate("/Dashboard/AddUser")}
-          className="bg-BC w-[100%] md:w-auto"
-          type="primary"
-        >
-          Agregar un nuevo usuario
-        </Button>
-      </div>
+     
     </div>
   );
 }

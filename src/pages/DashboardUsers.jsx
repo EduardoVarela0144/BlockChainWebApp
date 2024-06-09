@@ -1,12 +1,10 @@
-import React  from "react";
+import React from "react";
 import { Layout, Table, Button } from "antd";
 import { ColumnsTableUsers } from "@constants/ColumnsTableUsers";
 import Loader from "@components/General/Loader";
 import MobileViewUsers from "@components/Dashboard/MobileViewUsers";
 import { useGetUsers } from "@hooks/Users/useGetUsers";
-import { useNavigate
-
- } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function DashboardUsers() {
   const { Content } = Layout;
   const navigate = useNavigate();
@@ -16,6 +14,10 @@ export default function DashboardUsers() {
   const handleRefetch = () => {
     refetch();
   };
+
+  if (isFetching) {
+    return <Loader />;
+  }
 
   return (
     <Layout className="flex-1 flex h-full">
@@ -30,9 +32,7 @@ export default function DashboardUsers() {
             Agregar un nuevo usuario
           </Button>
         </div>
-        {isFetching ? (
-          <Loader />
-        ) : (
+        {!isFetching && (
           <>
             <Table
               pagination={false}

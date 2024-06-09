@@ -21,14 +21,7 @@ export default function SiderCustom({
       className="hidden md:inline-block"
       style={{ backgroundColor: "black" }}
     >
-      <div
-        className={`flex flex-row ${
-          collapsed ? "hidden" : "flex flex-col"
-        } items-center px-2 py-1 my-8`}
-      >
-        <img src={Logo} className="h-8 w-auto" />
-        <span className="font-bold text-white">BlockChain App</span>
-      </div>
+      
 
       <div
         className={`flex flex-col space-y-4 ${

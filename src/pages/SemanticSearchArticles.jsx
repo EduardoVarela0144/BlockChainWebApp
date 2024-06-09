@@ -37,15 +37,17 @@ export default function  SemanticSearchArticles() {
     setFilter({ search: "", page: 1, roleId: "" });
   }
 
+  if (isFetching) {
+    return <Loader />;
+  }
+
 
   return (
     <Layout className="flex-1 flex h-full">
       <Content className="bg-slate-200 h-full flex flex-col items-start justify-center px-8 py-4 space-y-8 overflow-auto">
         <ArticleFilter handleSearchChange={handleSearchChange} handleCleanSearch={handleCleanSearch} />
 
-        {isFetching ? (
-          <Loader />
-        ) : (
+        {!isFetching && (
           <>
             <Table
               pagination={false}

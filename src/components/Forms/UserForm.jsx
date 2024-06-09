@@ -18,7 +18,7 @@ export default function UserForm({ isAdd, isEdit }) {
 
   const onFinish = async (values) => {
     if (!isEdit && !isAdd) {
-      register(values);
+      await register(values);
     } else if (isEdit) {
       await editUser(values);
     } else {
