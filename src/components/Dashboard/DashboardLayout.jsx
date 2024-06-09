@@ -16,7 +16,6 @@ const DashboardLayout = () => {
 
   const getSelectedKey = () => {
     const path = location.pathname;
-    console.log(path)
     if (path === "/Dashboard") return "1";
     if (
       path === "/Dashboard/Users" ||
@@ -24,7 +23,7 @@ const DashboardLayout = () => {
       path === "/dashboard/Users"
     )
       return "2";
-    if (path === "/Dashboard/Search") return "3";
+    if (path.includes("Search")) return "3";
     return "1";
   };
 

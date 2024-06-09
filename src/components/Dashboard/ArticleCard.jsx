@@ -1,17 +1,15 @@
 import React from "react";
 import { Card } from "antd";
-import DeleteModal from "@components/Dashboard/DeleteModal";
-import EditButton from "@components/Dashboard/EditButton";
+import SeeArticleButton from "@components/Dashboard/SeeArticleButton";
 
-const ArticleCard = ({ article, refetch }) => {
+const ArticleCard = ({ article }) => {
   const { title, id_article, content } = article;
 
   return (
     <Card title={title || "Título no disponible"}>
       <p className="line-clamp-5">{content}</p>
-      <div className="flex flex-row items-center space-x-4 py-4">
-        {/* <EditButton id={id} />
-      <DeleteModal name={user?.firstName} refetch={refetch} id={id} /> */}
+      <div className="flex flex-row items-end justify-end space-x-4 py-4">
+        <SeeArticleButton id={id_article} />
       </div>
     </Card>
   );

@@ -5,6 +5,7 @@ import SemanticSearchArticles from '@pages/SemanticSearchArticles';
 import DashboardUsers from "@pages/DashboardUsers";
 import AddUser from "@pages/AddUser";
 import EditUser from "@pages/EditUser";
+import SeeArticle from '@pages/SeeArticle';
 
 export default function DashboardRouter() {
   return (
@@ -14,6 +15,8 @@ export default function DashboardRouter() {
     <Route path="/Search" element={<SemanticSearchArticles />} />
     <Route path="/AddUser" element={<AddUser />} />
     <Route path="/Users/:id" element={<EditUser />} />
+    <Route path="/Search/:id" element={<SeeArticle />} />
+
   </Routes>
   )
 }

@@ -14,7 +14,7 @@ export default function ArticlesCards({ data, isFetching, refetch }) {
       <Row gutter={[0, 16]} className=" w-full">
         {data.map((article, index) => (
           <Col key={index} xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
-            <ArticleCard article={article} refetch={refetch} />
+            <ArticleCard article={article} />
           </Col>
         ))}
       </Row>

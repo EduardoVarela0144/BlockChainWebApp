@@ -66,7 +66,7 @@ export default function SemanticSearchArticles() {
                   isFetching={isFetching}
                   refetch={refetch}
                 />
-                <div className="w-full flex  justify-center items-center">
+                {/* <div className="w-full flex  justify-center items-center">
                   <Pagination
                     pageSize={10}
                     total={data?.results.length}
@@ -76,7 +76,7 @@ export default function SemanticSearchArticles() {
                     }}
                     showSizeChanger={false}
                   />
-                </div>
+                </div> */}
               </div>
             )}
           </>
