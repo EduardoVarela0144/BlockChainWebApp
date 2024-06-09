@@ -15,7 +15,7 @@ export default function ArticleFilter({ handleSearchChange, handleCleanSearch })
 
   return (
     <div className="w-full space-y-8">
-      <span className="text-left text-BC text-4xl font-bold">Búsqueda semántica</span>
+      <span className="text-left text-BC text-4xl font-bold">Búsqueda de artículos</span>
       <div className="w-full flex flex-row ">
         <Form
           form={form}

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Layout, Table, Pagination } from "antd";
-import { ColumnsTableUsers } from "@constants/ColumnsTableUsers";
+import { Layout, Pagination } from "antd";
 import Loader from "@components/General/Loader";
-import MobileViewUsers from "@components/Dashboard/MobileViewUsers";
-import { useGetUsers } from "@hooks/Users/useGetUsers";
+import ArticlesCards from "@components/Dashboard/ArticlesCards";
+import { useGetSemanticSearch } from "@hooks/Articles/useGetSemanticSearch";
+
 import ArticleFilter from "@components/Dashboard/ArticleFilter";
 
-export default function  SemanticSearchArticles() {
+export default function SemanticSearchArticles() {
   const { Content } = Layout;
 
-  const [filter, setFilter] = useState({ search: "", page: 1, roleId: "" });
+  const [filter, setFilter] = useState({ query: "Species", page: 1 });
 
-  const { data, isFetching, refetch} = useGetUsers(filter);
+  const { data, isFetching, refetch } = useGetSemanticSearch(filter);
 
   const handlePageChange = (newPage) => {
     if (newPage != filter.page) {
@@ -19,45 +19,43 @@ export default function  SemanticSearchArticles() {
     }
   };
 
-  const handleRefetch = () => {
-    refetch()
-  }
-
   const handleSearchChange = (data) => {
     const updatedFilter = { ...filter };
 
-    updatedFilter.roleId = data.rol || "";
-    updatedFilter.search = data.user || "";
+    updatedFilter.query = data.query || "";
     updatedFilter.page = 1;
 
     setFilter(updatedFilter);
   };
 
   const handleCleanSearch = () => {
-    setFilter({ search: "", page: 1, roleId: "" });
-  }
+    setFilter({ query: "", page: 1 });
+  };
 
   if (isFetching) {
     return <Loader />;
   }
 
+  console.log(data);
 
   return (
-    <Layout className="flex-1 flex h-full">
+    <Layout className="flex-1 flex h-full ">
       <Content className="bg-slate-200 h-full flex flex-col items-start justify-center px-8 py-4 space-y-8 overflow-auto">
-        <ArticleFilter handleSearchChange={handleSearchChange} handleCleanSearch={handleCleanSearch} />
+        <ArticleFilter
+          handleSearchChange={handleSearchChange}
+          handleCleanSearch={handleCleanSearch}
+        />
 
         {!isFetching && (
           <>
-            <Table
-              pagination={false}
-              className="w-full hidden lg:table"
-              columns={ColumnsTableUsers(handleRefetch)}
-              dataSource={data?.hits.hits}
-              rowKey={(record) => record?._id}
-              style= {{minWidth: '100%', width: '100%'}}
-            />
-            <MobileViewUsers data={data?.hits.hits} isFetching={isFetching} refetch={refetch} />
+            <div className="flex  w-full">
+              <ArticlesCards
+                data={data?.results}
+                isFetching={isFetching}
+                refetch={refetch}
+              />
+            </div>
+
             <div className="flex  w-full justify-center items-center">
               <Pagination
                 pageSize={10}
