@@ -10,8 +10,8 @@ export default function MobileViewUsers({ data, isFetching, refetch }) {
     </Col>
   ));
   return (
-    <div className="space-y-2">
-      <Row gutter={[16, 16]} className="flex lg:hidden">
+    <div className="space-y-2 w-full">
+      <Row gutter={[16, 16]} className="flex lg:hidden  w-full">
         {data.map((user, index) => (
           <Col key={index} xs={24} sm={12} md={12} lg={12} xl={6} xxl={6}>
             <UserCard user={user._source} refetch={refetch} />

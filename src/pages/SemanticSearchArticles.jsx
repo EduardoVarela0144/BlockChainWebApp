@@ -9,7 +9,7 @@ import ArticleFilter from "@components/Dashboard/ArticleFilter";
 export default function SemanticSearchArticles() {
   const { Content } = Layout;
 
-  const [filter, setFilter] = useState({ query: "", page: 1 });
+  const [filter, setFilter] = useState({ query: "", page: 1, top_k: 10 });
 
   const { data, isFetching, refetch } = useGetSemanticSearch(filter);
 
@@ -24,6 +24,7 @@ export default function SemanticSearchArticles() {
 
     updatedFilter.query = data.query || "";
     updatedFilter.page = 1;
+    updatedFilter.top_k = data.top_k || 10;
 
     setFilter(updatedFilter);
   };
