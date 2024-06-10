@@ -23,27 +23,75 @@ export default function SeeArticle() {
           className="w-full"
         >
           <div className="mb-4">
+            <p className="font-bold">Autores</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.authors || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">Journal</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.journal || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">Resumen</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.abstract || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">DOI</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.doi || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">ISSN</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.issn || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">Año</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.year || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">Volumen</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.volume || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">Número</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.issue || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">Páginas</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.pages || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="font-bold">URL</p>
+            <p className="line-clamp-5 text-justify text-sm">
+              {data?.url || "Contenido no disponible"}
+            </p>
+          </div>
+          <div className="mb-4">
             <p className="font-bold">PMC ID</p>
             <p className="line-clamp-5 text-justify text-sm">
               {data?.pmc_id || "Contenido no disponible"}
             </p>
           </div>
           <div className="mb-4">
-            <p className="font-bold">Métodos</p>
-            <p className="line-clamp-5 text-justify text-sm">
-              {data?.methods || "Contenido no disponible"}
-            </p>
-          </div>
-          <div className="mb-4">
             <p className="font-bold">Contenido</p>
             <p className="line-clamp-5 text-justify text-sm">
               {data?.content || "Contenido no disponible"}
-            </p>
-          </div>
-          <div className="mb-4">
-            <p className="font-bold">Resultados</p>
-            <p className="line-clamp-5 text-justify text-sm">
-              {data?.results || "Contenido no disponible"}
             </p>
           </div>
         </Card>

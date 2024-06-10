@@ -18,9 +18,8 @@ const DashboardLayout = () => {
     const path = location.pathname;
     if (path === "/Dashboard") return "1";
     if (
-      path === "/Dashboard/Users" ||
-      path === "/Dashboard/AddUser" ||
-      path === "/dashboard/Users"
+      path.includes("Users") ||
+      path.includes("AddUser") 
     )
       return "2";
     if (path.includes("Search")) return "3";

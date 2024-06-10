@@ -36,7 +36,6 @@ export default function SemanticSearchArticles() {
     return <Loader />;
   }
 
-  console.log(data);
 
   return (
     <Layout className="flex-1 flex h-full ">
@@ -47,7 +46,7 @@ export default function SemanticSearchArticles() {
         />
         <p>
           {filter.query &&
-            `Resultados de la búsqueda: "${filter.query}" - Página ${filter.page}`
+            `Resultados de la búsqueda: "${filter.query}"`
           }
         </p>
 
