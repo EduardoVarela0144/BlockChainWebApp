@@ -6,6 +6,7 @@ import CustomCarousel from "@components/General/CustomCarousel";
 import Logo from "@assets/images/Logo.jpg";
 import AnimationLayout from "@components/General/AnimationLayout";
 import { useLogin } from "@hooks/Users/useLogin";
+import ConfigurationModal from "@components/Configuration/ConfigurationModal";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ export default function Login() {
   const onFinish = (values) => {
     login(values)
   };
+
+  const [open, setOpen] = React.useState(false);
 
   return (
     // <AnimationLayout>
@@ -81,6 +84,12 @@ export default function Login() {
                 >
                   Registrarse
                 </Button>
+                <Button
+                  onClick={() => setOpen(true)}
+                  className="w-full my-4"
+                >
+                  Cambiar configuración
+                </Button>
               </Form.Item>
             </Form>
           </Col>
@@ -94,6 +103,7 @@ export default function Login() {
             <CustomCarousel />
           </Col>
         </Row>
+        <ConfigurationModal open={open} setOpen={setOpen} />
       </div>
     // </AnimationLayout>
   );
