@@ -1,5 +1,5 @@
 import { Menu, Avatar, Layout } from "antd";
-import Logo from "@assets/images/Logo.png";
+import Logo from "@assets/images/Logo.jpg";
 import { AuthContext } from "@context/AuthContext";
 import { useContext } from "react";
 

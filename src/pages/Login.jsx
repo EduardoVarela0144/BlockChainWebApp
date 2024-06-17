@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 import { Form, Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import CustomCarousel from "@components/General/CustomCarousel";
-import Logo from "@assets/images/Logo.png";
+import Logo from "@assets/images/Logo.jpg";
 import AnimationLayout from "@components/General/AnimationLayout";
 import { useLogin } from "@hooks/Users/useLogin";
 

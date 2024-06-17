@@ -3,7 +3,7 @@ import { Row, Col } from "antd";
 import { Button } from "antd";
 import CustomCarousel from "@components/General/CustomCarousel";
 import UserForm from "@components/Forms/UserForm";
-import Logo from "@assets/images/Logo.png";
+import Logo from "@assets/images/Logo.jpg";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import AnimationLayout from "@components/General/AnimationLayout";
 

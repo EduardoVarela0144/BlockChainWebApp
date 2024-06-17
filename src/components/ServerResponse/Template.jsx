@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Lottie from "react-lottie";
 import { Button } from "antd";
 import { AuthContext } from "@context/AuthContext";
-import Logo from "@assets/images/Logo.png";
+import Logo from "@assets/images/Logo.jpg";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
