@@ -10,3 +10,9 @@ Currently, two official plugins are available:
 Env 
 - VITE_API_URL=(URL DEL BACKEND EN PYTHON)
 - VITE_API_ELASTIC_URL=(URL DE ELASTIC SEARCH)
+
+Install
+- npm install
+
+Run
+- npm run dev
