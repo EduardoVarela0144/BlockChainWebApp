@@ -28,9 +28,11 @@ export default function ConfigurationModal({ open, setOpen }) {
   const { Api, setApi } = useContext(ApiContext);
 
   useEffect(() => {
-    setApi(API_OPTIONS.LOCAL);
-  }, []); //
-  
+    if (!Api) {
+      setApi(API_OPTIONS.LOCAL);
+    }
+  }, []);
+
   const [value, setValue] = useState(() => {
     if (Api) {
       return Api.id;
