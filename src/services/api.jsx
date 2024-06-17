@@ -1,5 +1,11 @@
 import axios from "axios";
-import { API_URL, API_ELASTIC_URL } from "@config";
+// import { API_URL, API_ELASTIC_URL } from "@config";
+
+const storedApi = localStorage.getItem("api");
+const apiJSON = JSON.parse(storedApi);
+
+
+console.log("apiJSON", apiJSON);
 
 export const headers = {
   "Content-Type": "application/json",
@@ -16,12 +22,12 @@ export const headersElastic = {
 };
 
 const axiosInstance = axios.create({
-  baseURL: API_URL,
+  baseURL: apiJSON?.VITE_API_URL,
   headers,
 });
 
 export const axiosElasticInstance = axios.create({
-  baseURL: API_ELASTIC_URL,
+  baseURL: apiJSON?.VITE_API_ELASTIC_URL  ,
   headersElastic,
 });
 
