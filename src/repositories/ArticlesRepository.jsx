@@ -9,6 +9,11 @@ class ArticlesRepository {
     const response = await api.get(`/article/${id}`);
     return response.data;
   }
+
+  async getExample(){
+    const response = await api.get(`/article/example`);
+    return response.data;
+  }
 }
 
 export default new ArticlesRepository();
