@@ -22,4 +22,5 @@ export const ItemsMenuDashboard = [
   getItem(<Link to="Example">Ejemplo</Link>, "5", <UserOutlined />),
   getItem(<Link to="Search">Búsqueda</Link>, "3", <SearchOutlined/>),
   getItem(<Link to="/Logout">Cerrar sesión</Link>, "4", <PoweroffOutlined />),
+  getItem(<Link to="Students">Estudiantes</Link>, "6", <PoweroffOutlined />),
 ];
